@@ -43,14 +43,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'org.springframework.security', name: 'spring-security-core'
-implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.security:spring-security-test'
+    testImplementation 'junit:junit:4.13'
+    
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
-     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-     runtimeOnly 'com.h2database:h2'
+
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.h2database:h2'
 
 }
 
@@ -58,6 +64,17 @@ dependencies {
 	  implementation "io.springfox:springfox-swagger2:${springfoxVersion}"
 	  implementation "io.springfox:springfox-swagger-ui:${springfoxUiVersion}"
 	  implementation 'io.jsonwebtoken:jjwt:0.9.1'
+      testImplementation group: 'pl.pragmatists', name: 'JUnitParams', version: '1.0.4'
+}
+
+tasks.test {
+
+    useJUnit()
+
+    useTestNG()
+
+    useJUnitPlatform()
+
 }
 
 

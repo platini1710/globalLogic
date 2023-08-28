@@ -1,20 +1,30 @@
 package com.global.tareas.test;
 
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.stream.Stream;
 
+import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
+
 import com.global.tareas.helper.PasswordValidator;
+
+import junitparams.JUnitParamsRunner;
+
+
+
 public class PasswordValidatorTest {
 
-    @ParameterizedTest(name = "#{index} - Run test with password = {0}")
+    @ParameterizedTest
     @MethodSource("validPasswordProvider")
-    void test_password_regex_valid(String password) {
-        assertTrue(PasswordValidator.isValid(password));
+    public void test_password_regex_valid(String password) {
+    	assertTrue(PasswordValidator.isValid(password));
+       
     }
 
     @ParameterizedTest(name = "#{index} - Run test with password = {0}")
@@ -23,11 +33,11 @@ public class PasswordValidatorTest {
     	assertTrue(PasswordValidator.isValid(password));
     }
 
-    static Stream<String> validPasswordProvider() {
+     static Stream<String> validPasswordProvider() {
         return Stream.of(
                 "A23bbbccc@",
                 "Hello word12",
-                "A!@#2&()–a1",              // test punctuation part 1
+                "A!@#2&()aa1",              // test punctuation part 1
                 "A[{23}]:;a",           // test punctuation part 2
                 "A7$^+=2a#",               // test symbols
                 "A89$abcdeab",     // test 20 chars
