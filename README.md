@@ -13,7 +13,7 @@
 	   
 4.-	para probar con datos en el Postman
       - ingresar un registro de un usuario, se debe ingresar en formato Json
-			url   :  http://localhost:8081/registro/usuario/sign-up	
+			url   :  http://localhost:8081/registro/usuario/sign-up
 			Metodo:  Post
 			
 			{
