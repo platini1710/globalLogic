@@ -45,3 +45,9 @@
 		    Metodo:  Get	
 	        Primero ingresar  en la pestaña Header y agregar la key Authorization y el valor del token que muestra cuando se crea el registo 
 		     no se ingresa nada, se deja vacio
+			 
+			 
+			 
+			 
+			 
+			 DIAGRAMA DE SECUENCIA y de componete dentro de LA CARPETA diagramas
